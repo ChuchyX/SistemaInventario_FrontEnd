@@ -1,0 +1,55 @@
+<div class="body">
+  <mat-card class="loginCard">
+    <mat-card-header class="header">
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="cardContent">
+      <form [formGroup]="formularioLogin" (ngSubmit)="Login()">
+        <mat-form-field appearance="outline">
+          <mat-label>EMAIL</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            formControlName="email"
+            required
+          />
+          <mat-icon matSuffix>mail</mat-icon>
+          @if (formularioLogin.controls['email'].invalid) {
+            <mat-error>{{getErrorMessageEmail()}}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>PASSWORD</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required/>
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          @if (formularioLogin.controls['password'].invalid) {
+            <mat-error>{{getErrorMessagePassword()}}</mat-error>
+          }
+        </mat-form-field>
+
+        <button class="buttonLogin" mat-raised-button color="primary" type="submit" [disabled]="formularioLogin.invalid">
+            Login
+            <mat-icon matSuffix>login</mat-icon>          
+        </button>
+      </form>
+    </mat-card-content>
+
+    <mat-card-footer>
+        @if (progressBar) {
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        }
+    </mat-card-footer>
+  </mat-card>
+</div>
+
+<router-outlet></router-outlet>

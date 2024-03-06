@@ -11,8 +11,10 @@ import { AuthService } from '../../../../Services/auth.service';
 export class HomeComponent {
 
   stateService = inject(StateService);
-  authService = inject(AuthService);
-  user: UserDTO = {username: '', email: '', edad: 0, sexo: '', rol: ''};
+
+  user: UserDTO = {username: '', email: '', age: 0, gender: '', role: ''};
+
+  sidenav = true;
 
   constructor() {
     if(localStorage.getItem('user'))
@@ -21,11 +23,6 @@ export class HomeComponent {
       this.stateService.updateUser(this.user);
     }
    
-  }
-
-  Logout()
-  {
-    this.authService.Logout();
   }
 
 }

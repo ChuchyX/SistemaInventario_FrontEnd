@@ -11,12 +11,22 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatMenuModule} from '@angular/material/menu';
+import { ShowForRoleDirective } from '../../directives/show-for-role.directive';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule} from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ShowForRoleDirective],
   imports: [
-    CommonModule,
+    CommonModule,  
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -24,14 +34,20 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule,
+    MatFormFieldModule,  
+    MatProgressBarModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatSelectModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatProgressBarModule,
-    MatMenuModule
   ],
   exports: [
+    MatTableModule,
     MatToolbarModule,
+    MatSortModule,
+    MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
@@ -39,10 +55,14 @@ import {MatMenuModule} from '@angular/material/menu';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatSelectModule,
     FormsModule, 
     ReactiveFormsModule,
     MatProgressBarModule,
-    MatMenuModule
+    MatMenuModule,
+    ShowForRoleDirective
   ]
 })
 export class SharedModule { }

@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { HomeUsuariosComponent } from './home-usuarios/home-usuarios.component';
+import { SharedModule } from '../shared/shared.module';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 
 @NgModule({
   declarations: [
-    HomeUsuariosComponent
+    HomeUsuariosComponent,
+    RegisterUserComponent
   ],
   imports: [
     CommonModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
+    SharedModule
   ]
 })
 export class UsuariosModule { }

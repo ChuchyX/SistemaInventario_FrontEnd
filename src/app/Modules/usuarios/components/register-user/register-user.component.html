@@ -1,0 +1,98 @@
+<h2 mat-dialog-title><b>Add New User</b></h2>
+<mat-dialog-content>
+  <form
+    [formGroup]="formularioRegister"
+    (ngSubmit)="Register()"
+    class="registerUserForm"
+  >
+    <mat-form-field appearance="outline" class="inputRegisterUser">
+      <mat-label>USERNAME</mat-label>
+      <input
+        matInput
+        placeholder="USERNAME*"
+        formControlName="username"
+        required
+      />
+      <mat-icon matSuffix>person</mat-icon>
+      @if (formularioRegister.controls['email'].invalid) {
+      <mat-error>{{ getErrorMessageUsername() }}</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="inputRegisterUser">
+      <mat-label>EMAIL</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-icon matSuffix>mail</mat-icon>
+      @if (formularioRegister.controls['email'].invalid) {
+      <mat-error>{{ getErrorMessageEmail() }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="inputRegisterUser">
+      <mat-label>PASSWORD</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="password"
+        required
+      />
+      <button
+        type="button"
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      @if (formularioRegister.controls['password'].invalid) {
+      <mat-error>{{ getErrorMessagePassword() }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="inputRegisterUser">
+      <mat-label>AGE</mat-label>
+      <input matInput placeholder="AGE" formControlName="age" required type="number"/>
+      <mat-icon matSuffix>123</mat-icon>
+      @if (formularioRegister.controls['age'].invalid) {
+      <mat-error>{{ getErrorMessageAge() }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-radio-group formControlName="gender" aria-label="Select a gender" class="inputRegisterUser">
+      <mat-label class="labelGender">GENDER*</mat-label>
+      <mat-radio-button value="Masculino" color="primary"
+        >Masculino</mat-radio-button
+      >
+      <mat-radio-button value="Femenino" color="primary"
+        >Femenino</mat-radio-button
+      >
+    </mat-radio-group>
+    <br />
+    <mat-form-field class="selectRole">
+      Role
+      <mat-select [(ngModel)]="selectedValue" formControlName="role">
+        @for (role of roles; track role.value) {
+          <mat-option [value]="role.value">{{role.value}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <br />
+   
+    <button
+      class="buttonLogin"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="formularioRegister.invalid"
+    >
+      Add User
+      <mat-icon matSuffix>add</mat-icon>
+    </button>
+  </form>
+</mat-dialog-content>

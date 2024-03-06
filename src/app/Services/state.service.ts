@@ -6,7 +6,7 @@ import { UserDTO } from '../Models/UserDTO-interface';
 })
 export class StateService {
 
-  User = signal<UserDTO>({username: '', email: '', edad: 0, sexo: '', rol: ''});
+  User = signal<UserDTO>({username: '', email: '', age: 0, gender: '', role: ''});
 
   updateUser(newUser: UserDTO)
   {

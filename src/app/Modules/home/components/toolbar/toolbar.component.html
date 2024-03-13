@@ -21,7 +21,7 @@
       <mat-menu #menuUser="matMenu">
         <span class="menuUserTitle"><b>Hello {{user.username}}!!!</b></span>
         <mat-divider class="toolbar-divider"></mat-divider>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="openProfileConfiguration()">
           <mat-icon>settings</mat-icon>
           <span>Configuration</span>
         </button>

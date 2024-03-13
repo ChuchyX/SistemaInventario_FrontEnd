@@ -1,0 +1,41 @@
+<h2 mat-dialog-title><b>Profile Configuration</b></h2>
+<mat-dialog-content>
+
+  <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+      <div
+        class="image d-flex flex-column justify-content-center align-items-center"
+      >
+        
+          <img src="../../../../../assets/images/anonymous.svg" height="100" width="100" class="profilePicture"/>
+        
+        <span class="name mt-3">{{user().username}}</span>
+        <span class="idd">{{user().email}}</span>
+       
+        <div
+          class="d-flex flex-row justify-content-center align-items-center mt-3"
+        >
+          <span class="number">{{user().role}}</span>
+        </div>
+        <div class="d-flex mt-2">
+            <div class="card flex justify-content-center">
+                <p-toast></p-toast>
+                <div class="file-select mt-2" id="src-file1">
+                  <input
+                    type="file"
+                    name="src-file1"
+                    aria-label="file"
+                    class="btn btn-success ms-1 w-100 mt-2"
+                    (change)="handleFileInput($event)"
+                    accept=".jpg"
+                    requiredFileType="image/png"
+                  />
+                </div>
+              </div>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+
+</mat-dialog-content>

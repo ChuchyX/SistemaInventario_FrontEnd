@@ -6,6 +6,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ProfileConfigurationComponent } from './components/profile-configuration/profile-configuration.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     DashboardComponent,
     ToolbarComponent,
     SidenavComponent,
+    ProfileConfigurationComponent,
   ],
   imports: [
     CommonModule,

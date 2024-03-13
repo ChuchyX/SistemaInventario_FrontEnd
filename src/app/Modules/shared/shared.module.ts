@@ -18,6 +18,8 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatSelectModule,
     FormsModule, 
     ReactiveFormsModule,
+    FileUploadModule,
+    ToastModule
   ],
   exports: [
     MatTableModule,
@@ -62,7 +66,9 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatProgressBarModule,
     MatMenuModule,
-    ShowForRoleDirective
+    ShowForRoleDirective,
+    FileUploadModule,
+    ToastModule
   ]
 })
 export class SharedModule { }

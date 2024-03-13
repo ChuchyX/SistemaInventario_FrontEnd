@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Login, RegisterDTO } from '../Modules/Login/Models/login-interface';
 import { Observable } from 'rxjs';
@@ -43,5 +43,20 @@ export class AuthService {
     localStorage.removeItem('authToken');
     localStorage.removeItem('user');
     this.router.navigate(['login']);
+  }
+
+  postFile(fileToUpload: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', fileToUpload);
+    const headers = new HttpHeaders().append(
+      'Content-Disposition',
+      'multipart/form-data'
+    );
+
+    return this.httpClient.post(
+      'https://localhost:7297/api/user/profilepicture',
+      formData,
+      { headers }
+    );
   }
 }
